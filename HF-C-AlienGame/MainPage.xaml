@@ -27,16 +27,19 @@
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="Hi"/>
         </Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" 
-                Margin="45,58,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" Grid.Column="2" HorizontalAlignment="Left" 
-                   Margin="48,74,0,0" Grid.Row="2" TextWrapping="Wrap" Text="TextBlock" 
-                   VerticalAlignment="Top"/>
-        <ProgressBar Grid.Column="1" HorizontalAlignment="Left" Height="10" 
-                     Margin="115,74,0,0" Grid.Row="2" VerticalAlignment="Top" Width="100"/>
-        <ContentControl Content="ContentControl" Grid.Column="2" HorizontalAlignment="Left" 
-                        Margin="10,99,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <Canvas Grid.Column="1" HorizontalAlignment="Left" Height="50" 
+        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" 
+                Margin="45,58,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
+            <TextBlock x:Name="textBlock" 
+                TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}">
+                <Run Text="Avoid These"/>
+                <LineBreak/>
+                <Run/>
+            </TextBlock>
+            <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
+        <Canvas x:Name="playArea" Grid.Column="1" HorizontalAlignment="Left" Height="50" 
                 Margin="165,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
 
     </Grid>
