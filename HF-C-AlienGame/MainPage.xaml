@@ -39,8 +39,14 @@
             <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
-        <Canvas x:Name="playArea" Grid.Column="1" HorizontalAlignment="Left" Height="50" 
-                Margin="165,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF52E8BF" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+        </Canvas>
 
     </Grid>
 
