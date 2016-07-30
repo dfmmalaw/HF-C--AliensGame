@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Animation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -42,6 +43,21 @@ namespace HF_C_AlienGame
             AnimateEnemy(enemy, random.Next((int)playArea.ActualHeight - 100),
                 random.Next((int)playArea.ActualHeight - 100), "(Canvas.Top)");
             playArea.Children.Add(enemy);     
+        }
+
+        private void AnimateEnemy(ContentControl enemy, double from, double to, string propertyToAnimate)
+        {
+            Storyboard storyboard = new Storyboard() { AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever };
+            DoubleAnimation animation = new DoubleAnimation()
+            {
+                From = from,
+                To = to,
+                Duration = new Duration(TimeSpan.FromSeconds(random.Next(4, 6)))
+            };
+            Storyboard.SetTarget(animation, enemy);
+            Storyboard.SetTargetProperty(animation, propertyToAnimate);
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
         }
     }
 }
