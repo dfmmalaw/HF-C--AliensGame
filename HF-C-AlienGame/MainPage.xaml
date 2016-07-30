@@ -6,6 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ControlTemplate x:Key="EnemyTemplate" TargetType="ContentControl">
+            <Grid>
+                <Ellipse Fill="Red" Stroke="Black" Width="100"/>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -29,16 +36,18 @@
         </Grid>
         <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" 
                 Margin="45,58,0,0" Grid.Row="2" VerticalAlignment="Center"/>
-        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock x:Name="textBlock" 
-                TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}">
+                TextWrapping="Wrap" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Run Text="Avoid These"/>
                 <LineBreak/>
                 <Run/>
             </TextBlock>
-            <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <ContentControl Content="ContentControl" HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" Template="{StaticResource EnemyTemplate}"/>
         </StackPanel>
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
+        
         <Canvas x:Name="playArea" Grid.Row="1" Grid.ColumnSpan="3">
             <Canvas.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -46,6 +55,10 @@
                     <GradientStop Color="#FF52E8BF" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
+            <StackPanel x:Name="human" Orientation="Vertical">
+                <Ellipse Fill="White" Height="10" Width="10"/>
+                <Rectangle Fill="White" Height="25" Width="10"/>
+            </StackPanel>
         </Canvas>
 
     </Grid>
